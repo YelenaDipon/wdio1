@@ -1,41 +1,7 @@
 // const assert = require('assert');
+const {user,pageRegistration,pageLogin,pageConfirmation,pageRegisterSelectors} = require('./register_data');
 const {expect} = require('chai');
-const user ={
-    firstName: 'Yelena',
-     lastName: 'Dipon',
-     email: Math.random() + 'diponyelena@gmail.com',
-     password: "Kotya67",
-    phone: 19169902185,
-    about: 'About section',
-    goal: 'Goals section'
-};
-const pageRegistration = {
-    url: 'https://stage.pasv.us/user/register',
-    title: 'Progress Monitor',
-    h1: 'User Register',
-    p: 'Profiles with fictitious or dummy data will be deleted.',
-    submitButton: 'Submit'
-};
-const pageLogin = {
-    h1: 'User Login',
-    url: 'https://stage.pasv.us/user/login'
-};
-const pageConfirmation = {
-    h1: 'You are a new user',
-};
-const pageRegisterSelectors = {
-    h1: 'h1',
-    desc: 'p',
-    submitButton: 'form button[type="submit"]',
-    firstNameInput: 'form input[name="firstName"]',
-    lastNameInput: 'form input[name="lastName"]',
-    phoneInput: 'form input[name="phone"]' ,
-    emailInput: 'form input[name="email"]',
-    passwordInput:'form input[name="password"]' ,
-    about: 'form textarea[name="about"]',
-    goals: 'form textarea[name="goals"]',
-    language: 'form select[name="englishLevel"]',
-};
+
 describe('Register page', () => {
     before(()=>{
         browser.url(pageRegistration.url)
