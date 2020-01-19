@@ -1,102 +1,133 @@
 // const assert = require('assert');
 const {expect} = require('chai');
-const firstName = 'Yelena';
-const lastName = 'Dipon';
-const email = Math.random() + 'diponyelena@gmail.com';
-const password = "Kotya67"
+const user ={
+    firstName: 'Yelena',
+     lastName: 'Dipon',
+     email: Math.random() + 'diponyelena@gmail.com',
+     password: "Kotya67",
+    phone: 19169902185,
+    about: 'About section',
+    goal: 'Goals section'
+};
+const pageRegistration = {
+    url: 'https://stage.pasv.us/user/register',
+    title: 'Progress Monitor',
+    h1: 'User Register',
+    p: 'Profiles with fictitious or dummy data will be deleted.',
+    submitButton: 'Submit'
+};
+const pageLogin = {
+    h1: 'User Login',
+    url: 'https://stage.pasv.us/user/login'
+};
+const pageConfirmation = {
+    h1: 'You are a new user',
+};
+const pageRegisterSelectors = {
+    h1: 'h1',
+    desc: 'p',
+    submitButton: 'form button[type="submit"]',
+    firstNameInput: 'form input[name="firstName"]',
+    lastNameInput: 'form input[name="lastName"]',
+    phoneInput: 'form input[name="phone"]' ,
+    emailInput: 'form input[name="email"]',
+    passwordInput:'form input[name="password"]' ,
+    about: 'form textarea[name="about"]',
+    goals: 'form textarea[name="goals"]',
+    language: 'form select[name="englishLevel"]',
+};
 describe('Register page', () => {
     before(()=>{
-        browser.url('https://stage.pasv.us/user/register')
+        browser.url(pageRegistration.url)
     });
-    it('should have the right title', () => {
+    it('should have a correct title', () => {
         const actualTitle = browser.getTitle();
-        const expectedTitle = 'Progress Monitor';
+        const expectedTitle = pageRegistration.title;
         expect(actualTitle).equal(expectedTitle);
     });
-
-it('should have a correct title', ()=> {
-   const actualH1Text = $('h1').getText();
-   const  expectedH1Text ='User Register';
+it('should have a correct header', ()=> {
+   const actualH1Text = $(pageRegisterSelectors.h1).getText();
+   const  expectedH1Text = pageRegistration.h1;
    expect(actualH1Text).equal(expectedH1Text);
 });
     it('should have a correct description', ()=> {
-        const actualDescription = $('p').getText();
-        const  expectedDescription ='Profiles with fictitious or dummy data will be deleted.';
+        const actualDescription = $(pageRegisterSelectors.desc).getText();
+        const  expectedDescription = pageRegistration.p;
         expect(actualDescription).equal(expectedDescription);
 });
     it('should have a correct submit button text', ()=> {
-        const actual = $('form button').getText();
+        const actual = $(pageRegisterSelectors.submitButton).getText();
         console.log(actual);
-        const  expected ='Submit';
+        const  expected = pageRegistration.submitButton;
         expect(actual).equal(expected);
     });
     it('should fill first name field', ()=> {
-        const element = $('form input[name="firstName"]');
-        element.setValue(firstName);
+        const element = $(pageRegisterSelectors.firstNameInput);
+        element.setValue(user.firstName);
            });
     it('should fill last name field', ()=> {
-        const element = $('form input[name="lastName"]');
-        element.setValue(lastName);
-          });
+        const element = $(pageRegisterSelectors.lastNameInput);
+        element.setValue(user.lastName);
+    });
     it('should fill number field', ()=> {
-        const element = $('form input[name="phone"]');
-        element.setValue('19169902185');
+        const element = $(pageRegisterSelectors.phoneInput);
+        element.setValue(user.phone);
     });
     it('should fill email field', ()=> {
-        const element = $('form input[name="email"]');
-        element.setValue(email);
+        const element = $(pageRegisterSelectors.emailInput);
+        element.setValue(user.email);
     });
     it('should fill password field', ()=> {
-        const element = $('form input[name="password"]');
-        element.setValue(password);
+        const element = $(pageRegisterSelectors.passwordInput);
+        element.setValue(user.password);
     });
     it('should fill about field', ()=> {
-        const element = $('form textarea[name="about"]');
-        element.setValue('About section');
+        const element = $(pageRegisterSelectors.about);
+        element.setValue(user.about);
     });
     it('should fill goals field', ()=> {
-        const element = $('form textarea[name="goals"]');
-        element.setValue('Goals section');
-
-    });
-    it('should fill goals field', ()=> {
-        const element = $('form textarea[name="goals"]');
-        element.setValue('Goals section');
-        // const  expected ='Submit';
-        // expect(element).equal(expected);
+        const element = $(pageRegisterSelectors.goals);
+        element.setValue(user.goal);
     });
     it('should fill English level field', ()=> {
-        const element = $('form select[name="englishLevel"]');
+        const element = $(pageRegisterSelectors.language);
         element.selectByIndex(1);
     });
-    it('should click button', ()=> {
-        const element = $('form button[type="submit"]');
-        element.click();
-        browser.pause(10000)
-    });
-it('should have a correct title in LogIn Screen', ()=> {
-    const actualH1Text = $('h1').getText();
-    const  expectedH1Text ='User Login';
-    expect(actualH1Text).equal(expectedH1Text);
-});
-
-    it('should fill email field in LogIn Screen', ()=> {
-        const element = $('form input[name="email"]');
-        element.setValue(email);
-    });
-    it('should fill password field in LogIn Screen', ()=> {
-        const element = $('form input[name="password"]');
-        element.setValue(password);
-    });
-    it('should click button in LogIn Screen', ()=> {
-        const element = $('form button[type="submit"]');
+    it('should click Submit button', ()=> {
+        const element = $(pageRegisterSelectors.submitButton);
         element.click();
         browser.pause(5000)
     });
-    it('should have a "You are a new user" title in Logged In Screen', ()=> {
-        const actualH1Text = $('h1').getText();
-        const  expectedH1Text ='You are a new user';
-        expect(actualH1Text).equal(expectedH1Text);
-        browser.pause(10000)
-    });
 });
+    describe('Log In page', () => {
+        before(()=>{
+            browser.url(pageLogin.url)
+        });
+it('should have a correct title in', ()=> {
+    const actualH1Text = $(pageRegisterSelectors.h1).getText();
+    const  expectedH1Text = pageLogin.h1;
+    expect(actualH1Text).equal(expectedH1Text);
+});
+
+    it('should fill email field ', ()=> {
+        const element = $(pageRegisterSelectors.emailInput);
+        element.setValue(user.email);
+    });
+    it('should fill password field', ()=> {
+        const element = $(pageRegisterSelectors.passwordInput);
+        element.setValue(user.password);
+    });
+    it('should click LogIn button', ()=> {
+        const element = $(pageRegisterSelectors.submitButton);
+        element.click();
+        browser.pause(5000)
+    });
+    });
+        describe('Confirmation register page', () => {
+    it('should have a correct title', ()=> {
+        const actualH1Text = $(pageRegisterSelectors.h1).getText();
+        const  expectedH1Text = pageConfirmation.h1;
+        expect(actualH1Text).equal(expectedH1Text);
+        browser.pause(5000)
+});
+        });
