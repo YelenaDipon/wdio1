@@ -1,11 +1,9 @@
 // const assert = require('assert');
-const {user,pageRegistration,pageLogin,pageConfirmation,pageRegisterSelectors} = require('./register_data');
+const {URL_REGISTER, URL_LOGIN, user,pageRegistration,pageLogin,pageConfirmation,pageRegisterSelectors} = require('./register_data');
 const {expect} = require('chai');
 
 describe('Register page', () => {
-    before(()=>{
-        browser.url(pageRegistration.url)
-    });
+    browser.url(URL_REGISTER);
     it('should have a correct title', () => {
         const actualTitle = browser.getTitle();
         const expectedTitle = pageRegistration.title;
@@ -17,13 +15,12 @@ it('should have a correct header', ()=> {
    expect(actualH1Text).equal(expectedH1Text);
 });
     it('should have a correct description', ()=> {
-        const actualDescription = $(pageRegisterSelectors.desc).getText();
-        const  expectedDescription = pageRegistration.p;
+        const actualDescription = $(pageRegisterSelectors.description).getText();
+        const  expectedDescription = pageRegistration.description;
         expect(actualDescription).equal(expectedDescription);
 });
     it('should have a correct submit button text', ()=> {
         const actual = $(pageRegisterSelectors.submitButton).getText();
-        console.log(actual);
         const  expected = pageRegistration.submitButton;
         expect(actual).equal(expected);
     });
@@ -67,7 +64,7 @@ it('should have a correct header', ()=> {
 });
     describe('Log In page', () => {
         before(()=>{
-            browser.url(pageLogin.url)
+            browser.url(URL_LOGIN);
         });
 it('should have a correct title in', ()=> {
     const actualH1Text = $(pageRegisterSelectors.h1).getText();

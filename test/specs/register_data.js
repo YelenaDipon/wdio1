@@ -1,18 +1,21 @@
 const HOST = `https://stage.pasv.us`;
-const user ={
+
+const URL_REGISTER = `${HOST}/user/register`;
+const URL_LOGIN = `${HOST}/user/login`;
+const email = Math.random().toFixed(4) + 'diponyelena@gmail.com';
+const user = {
     firstName: 'Yelena',
     lastName: 'Dipon',
-    email: Math.random().toFixed(3) + 'diponyelena@gmail.com',
+    email: email,
     password: "Kotya67",
     phone: 19169902185,
     about: 'About section',
     goal: 'Goals section'
 };
 const pageRegistration = {
-    url: `${HOST}/user/register`,
     title: 'Progress Monitor',
     h1: 'User Register',
-    p: 'Profiles with fictitious or dummy data will be deleted.',
+    description: 'Profiles with fictitious or dummy data will be deleted.',
     submitButton: 'Submit'
 };
 const pageLogin = {
@@ -24,7 +27,7 @@ const pageConfirmation = {
 };
 const pageRegisterSelectors = {
     h1: 'h1',
-    desc: 'p',
+    description: 'p',
     submitButton: 'form button[type="submit"]',
     firstNameInput: 'form input[name="firstName"]',
     lastNameInput: 'form input[name="lastName"]',
@@ -35,4 +38,4 @@ const pageRegisterSelectors = {
     goals: 'form textarea[name="goals"]',
     language: 'form select[name="englishLevel"]',
 };
-module.exports = {user,pageRegistration,pageLogin,pageConfirmation,pageRegisterSelectors};
+module.exports = {URL_REGISTER, URL_LOGIN, user,pageRegistration,pageLogin,pageConfirmation,pageRegisterSelectors};
