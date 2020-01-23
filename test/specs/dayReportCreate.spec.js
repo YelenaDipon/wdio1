@@ -1,7 +1,7 @@
 const { expect } = require('chai');
 const { URL_LOGIN } = require('./register_data');
 
-describe('Login as admin', () => {
+describe('CREATE DAY REPORT', () => {
         before('Login as admin', () => {
         browser.url(URL_LOGIN);
         $('form input[name="email"]').setValue('yelenadipon@yahoo.com');
