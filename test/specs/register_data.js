@@ -3,13 +3,13 @@ const HOST = `https://stage.pasv.us`;
 const URL_REGISTER = `${HOST}/user/register`;
 const URL_LOGIN = `${HOST}/user/login`;
 const URL_DAYREPORT = '${HOST}/diary/create'
-const email = Math.random().toFixed(4) + 'diponyelena@gmail.com';
+const email = Math.random().toFixed(4) + 'jessicaj@gmail.com';
 const user = {
-    firstName: 'Yelena',
-    lastName: 'Dipon',
+    firstName: 'Jessica',
+    lastName: 'Jackson',
     email: email,
     password: "Kotya67",
-    phone: 19169902185,
+    phone: 19167782934,
     about: 'About section',
     goal: 'Goals section'
 };
