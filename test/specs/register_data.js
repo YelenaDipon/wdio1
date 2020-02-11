@@ -2,6 +2,7 @@ const HOST = `https://stage.pasv.us`;
 
 const URL_REGISTER = `${HOST}/user/register`;
 const URL_LOGIN = `${HOST}/user/login`;
+const URL_DAYREPORT = '${HOST}/diary/create'
 const email = Math.random().toFixed(4) + 'diponyelena@gmail.com';
 const user = {
     firstName: 'Yelena',

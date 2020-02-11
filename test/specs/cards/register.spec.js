@@ -1,5 +1,5 @@
 // const assert = require('assert');
-const {URL_REGISTER, URL_LOGIN, user,pageRegistration,pageLogin,pageConfirmation,pageRegisterSelectors} = require('./register_data');
+const {URL_REGISTER, URL_LOGIN, user,pageRegistration,pageLogin,pageConfirmation,pageRegisterSelectors} = require('../register_data');
 const {expect} = require('chai');
 
 describe('Register page', () => {
