@@ -4,8 +4,8 @@ const { URL_LOGIN } = require('../register_data');
 describe('FLASH GROUP CREATE', () => {
     before('Login as admin', () => {
     browser.url(URL_LOGIN);
-        $('form input[name="email"]').setValue('yelenadipon@yahoo.com');
-        $('form input[name="password"]').setValue('Zdkfr22.');
+        $('form input[name="email"]').setValue('yn@yahoo.com');
+        $('form input[name="password"]').setValue('Z2.');
         $('form button[type="submit"]').click();
         browser.pause(1000);
     });
@@ -29,10 +29,10 @@ describe('FLASH GROUP CREATE', () => {
         expect(actual).eq(expected);
     });  it('should fill out input group name', () => {
         const el = browser.$('//div[contains(@class, "sidepanel")]//input[@name="name"]');
-        el.setValue('My group name 123');
+        el.setValue('Testing Flash Group Create');
     });  it('should fill out input group description', () => {
         const el = browser.$('//div[contains(@class, "sidepanel")]//input[@name="description"]');
-        el.setValue('My group description 123...');
+        el.setValue('Description of the guinea Flash Group');
     });  it('should submit form', () => {
         const el = browser.$('//div[contains(@class, "sidepanel")]//button[@type="submit"]');
         el.click();
@@ -41,15 +41,15 @@ describe('FLASH GROUP CREATE', () => {
         const actual = browser.$('//div[@qa="flash-group-list "]//h4/a').getText();
         const expected = 'Testing Flash Group Create';
         expect(actual).eq(expected);
-    });  it('should first item in list be equal created group description', () => {
+    });  it('should first item in list be equal to created group description', () => {
         const actual = browser.$('//div[@qa="flash-group-list "]//div[@qa="description"]').getText();
-        const expected = 'Description of the gunie Flash Group';
+        const expected = 'Description of the guinea Flash Group';
         expect(actual).eq(expected);
     });  it('should verify created title group is clickable', () => {
         const el = browser.$('//div[@qa="flash-group-list "]//h4/a');
         el.click();
         browser.pause(300);
-    });  it('should clicked group has correct title', () => {
+    });  it('should clicked group have correct title', () => {
         const actual = browser.$('//h1').getText();
         const expected = 'Testing Flash Group Create';
         expect(actual).eq(expected);
