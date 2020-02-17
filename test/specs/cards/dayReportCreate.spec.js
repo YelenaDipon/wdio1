@@ -1,11 +1,14 @@
-const { expect } = require('chai');
+// const { expect } = require('chai'); // without Babel
+import {expect} from 'chai';    //with Babel
 const { URL_LOGIN } = require('../register_data');
+
+
 
 describe('CREATE DAY REPORT', () => {
         before('Login as admin', () => {
         browser.url(URL_LOGIN);
-        $('form input[name="email"]').setValue('yn@yahoo.com');
-        $('form input[name="password"]').setValue('Z22.');
+        $('form input[name="email"]').setValue('yelenadipon@yahoo.com');
+        $('form input[name="password"]').setValue('Zdkfr22.');
         $('form button[type="submit"]').click();
         browser.pause(1000)
     });
@@ -20,9 +23,9 @@ describe('CREATE DAY REPORT', () => {
                 const expected = 'Daily reports';
                 expect(actual).to.eq(expected);
         });
-        it('should click on Create day report button', function () {
-              browser.$('')
-        });
+        // it('should click on Create day report button', function () {
+        //       browser.$('')
+        // });
 
 
 });
