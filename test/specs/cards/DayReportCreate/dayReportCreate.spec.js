@@ -1,6 +1,6 @@
 // const { expect } = require('chai'); // without Babel
 import {expect} from 'chai';    //with Babel
-const { URL_LOGIN } = require('../register_data');
+const { URL_LOGIN } = require('../Register/register_data');
 
 
 
